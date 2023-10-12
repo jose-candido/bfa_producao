@@ -1,0 +1,3953 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
+  @media only screen and (min-width: 1024px) and (max-width: 1600px) {
+    html {
+      font-size: 46.875%; } }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    html {
+      font-size: 36.4583333%; } }
+  @media only screen and (max-height: 700px) {
+    html {
+      font-size: 36.4583333%; } }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    html {
+      font-size: 62.5%; } }
+  @media only screen and (max-width: 43.7em) {
+    html {
+      font-size: 62.5%; } }
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden; }
+
+::selection {
+  background-color: #00c1ff;
+  color: #fff; }
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+body {
+  font-family: 'Verdana', sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 4.0rem;
+  color: #fff; }
+
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-top-small {
+  margin-top: 5rem !important; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
+
+.u-margin-bottom-big {
+  margin-bottom: 10rem !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
+
+.u-margin-top-big {
+  margin-top: 10rem !important; }
+
+.u-margin-top-medium {
+  margin-top: 6rem !important; }
+
+.u-margin-top-huge {
+  margin-top: 20rem !important; }
+
+.margin-bottom-15 {
+  margin-bottom: 15rem !important; }
+
+.text-blue-lighter {
+  color: #00c1ff; }
+
+.text-blue-default {
+  color: #002f9e; }
+
+.text-blue-dark {
+  color: #01285b; }
+
+.text-green {
+  color: #00ae43; }
+
+.text-yellow {
+  color: #c0b800; }
+
+.text-orange {
+  color: #D5703B; }
+
+.text-red {
+  color: #a80050; }
+
+.text-pink {
+  color: #af50c5; }
+
+.text-white {
+  color: #fff; }
+
+@media only screen and (max-width: 43.7em) {
+  .on-phone {
+    display: block !important; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .on-tablet {
+    display: block !important; } }
+
+@media only screen and (min-width: 56.25em) {
+  .on-desktop {
+    display: block !important; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .tablet-flex-column {
+    flex-direction: column !important; } }
+
+.background-blue-dark {
+  background-color: #01285b !important; }
+
+.flex-fix {
+  display: flex;
+  column-gap: 3rem; }
+
+.margin-bottom-zero {
+  margin-bottom: 0 !important; }
+
+.button, .button:link, .button:visited, .button:focus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #0A2240;
+  background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%);
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 2.1rem;
+  font-family: 'bentonsansregular';
+  cursor: pointer;
+  width: 30rem; }
+  @media only screen and (max-width: 43.7em) {
+    .button, .button:link, .button:visited, .button:focus {
+      font-size: 1.8rem; } }
+
+.button__main-button {
+  background-image: linear-gradient(90deg, #0072CE 0%, #00A9E0 100%) !important; }
+
+.button__main-button:hover {
+  opacity: 0.8; }
+
+.button__cap1, .button__cap2, .button__cap3, .button__cap4, .button__cap5, .button__cap6 {
+  background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%) !important; }
+
+.button__cap1:hover {
+  background-image: linear-gradient(90deg, #0072CE 0%, #00A9E0 100%) !important; }
+
+.button__cap2:hover {
+  background-image: linear-gradient(90deg, #EB9006 0%, #FFB81D 100%) !important; }
+
+.button__cap3:hover {
+  background-image: linear-gradient(90deg, #1C8321 0%, #4DAA51 100%) !important; }
+
+.button__cap4:hover {
+  background-image: linear-gradient(90deg, #959B03 0%, #B5BD00 100%) !important; }
+
+.button__cap5:hover {
+  background-image: linear-gradient(90deg, #C1844C 0%, #E7B78A 100%) !important; }
+
+.button__cap6:hover {
+  background-image: linear-gradient(90deg, #BB480F 0%, #FF681D 100%) !important; }
+
+.button--downloads {
+  width: 100% !important;
+  min-height: 7.8rem;
+  vertical-align: baseline; }
+  @media only screen and (max-width: 43.7em) {
+    .button--downloads {
+      min-height: 6rem; } }
+
+.button-icon {
+  position: absolute;
+  right: 50px; }
+  @media only screen and (max-width: 43.7em) {
+    .button-icon {
+      height: 2.3rem;
+      right: 20px; } }
+
+.arrow-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 3rem;
+  z-index: 500;
+  transition: 0.5s; }
+  .arrow-button__title {
+    color: #fff;
+    font-weight: 100;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase; }
+    .arrow-button__title--blue {
+      color: #01285b; }
+  .arrow-button__icon {
+    width: 0;
+    height: 0;
+    border-left: 2.1rem solid transparent;
+    border-right: 2.1rem solid transparent;
+    border-top: 2.6rem solid #fff;
+    opacity: 0.5;
+    cursor: pointer; }
+    .arrow-button__icon--blue {
+      border-top: 2.6rem solid #01285b; }
+    .arrow-button__icon--orange {
+      border-top: 2.6rem solid #D5703B;
+      opacity: 1; }
+
+.arrow-button:hover {
+  opacity: 0.5; }
+
+.seccao4, .seccao4Up, .seccao4Down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 3rem;
+  z-index: 100000; }
+  .seccao4__title, .seccao4Up__title, .seccao4Down__title {
+    color: #01285b;
+    font-weight: 100;
+    font-size: 1.6rem;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase; }
+  .seccao4__icon, .seccao4Up__icon, .seccao4Down__icon {
+    width: 0;
+    height: 0;
+    border-left: 2.1rem solid transparent;
+    border-right: 2.1rem solid transparent;
+    border-top: 2.6rem solid #01285b;
+    opacity: 0.5;
+    cursor: pointer; }
+
+.arrow-up {
+  transform: rotate(180deg) !important;
+  z-index: 100000000000000000; }
+
+.arrow-right {
+  transform: rotate(-90deg) !important;
+  align-self: center; }
+
+.arrow-left {
+  transform: rotate(90deg) !important;
+  align-self: center;
+  margin-right: 5rem; }
+
+.button2, .button2:link, .button2:visited {
+  height: 5.3rem;
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 2.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-right: 6rem;
+  transition: all 300ms ease-in-out; }
+
+.button2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -2;
+  background-image: url(../img/diagonal2.svg);
+  background-size: cover;
+  background-position: right;
+  color: #fff;
+  transition: transform 300ms ease-in-out;
+  transform-origin: left; }
+
+.button2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  background-image: url(../img/diagonal.svg);
+  background-size: cover;
+  background-position: right;
+  color: #fff;
+  transform: scaleX(0);
+  transition: transform 300ms ease-in-out;
+  transform-origin: left; }
+
+.button2:hover::after {
+  transform: scaleX(1); }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .button--6 {
+    display: none !important; }
+  .button--6-tablet {
+    display: block !important; } }
+
+.section-button, .section-button:link, .section-button:visited, .section-button:focus {
+  border-radius: 99px;
+  padding: 1.5rem 4rem;
+  cursor: pointer;
+  width: fit-content; }
+
+.section-button__link {
+  font-family: "bentonsansbold";
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  color: #fff;
+  border: none;
+  text-decoration: none; }
+
+.section-button:hover {
+  opacity: 0.5 !important; }
+
+.arrow-button-slide {
+  margin-left: 0 !important;
+  cursor: pointer; }
+
+.navbar {
+  display: none;
+  background-color: #030628;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 10rem;
+  overflow: hidden;
+  z-index: 3000000000000;
+  text-align: center; }
+  .navbar__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 86vw;
+    height: 100%;
+    margin: 0 auto; }
+
+.top-bar-mobile-left {
+  width: 100%;
+  display: flex;
+  align-items: center; }
+
+.logo-mobile {
+  height: 4rem;
+  margin-right: 2.4rem; }
+
+.title__text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  text-align: left; }
+  @media only screen and (max-width: 43.7em) {
+    .title__text {
+      width: 13.7rem; } }
+
+.hamb-size {
+  display: flex; }
+
+.menu-open {
+  position: fixed;
+  height: 100%;
+  width: 90%;
+  background-color: pink;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 14rem;
+  z-index: 90000000000000000000000000; }
+  .menu-open__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .menu-open__container {
+        margin-top: 5rem; } }
+
+.menu-in {
+  opacity: 1;
+  animation-name: appearMenu;
+  animation-duration: 1s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: forwards; }
+
+@keyframes appearMenu {
+  from {
+    transform: translateX(100%);
+    visibility: visible; }
+  to {
+    transform: translateX(0%);
+    visibility: visible; } }
+
+.menu-out {
+  animation-name: disappearMenu;
+  animation-duration: 1s;
+  transition-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes disappearMenu {
+  from {
+    transform: translateX(0%);
+    visibility: visible; }
+  to {
+    transform: translateX(100%);
+    visibility: visible; } }
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  position: relative; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper {
+      justify-content: flex-start;
+      margin-top: 8rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .wrapper {
+      justify-content: flex-start; } }
+
+.section {
+  display: none;
+  width: 100vw;
+  background-size: cover;
+  background-position: right;
+  position: relative;
+  overflow-x: clip; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section {
+      overflow-x: hidden;
+      overflow-y: hidden; } }
+  @media only screen and (max-width: 43.7em) {
+    .section {
+      overflow-x: hidden;
+      overflow-y: hidden; } }
+  .section--7 {
+    min-height: auto; }
+  .section--4 {
+    position: relative; }
+  .section__header {
+    position: absolute;
+    z-index: 1000; }
+    .section__header--big {
+      margin-top: 15rem; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .section__header {
+        display: none; } }
+
+/* SLIDER */
+.slider {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  /* IN THE END */
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* This creates the animation */
+  transition: transform 1s; }
+
+.arr-right {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  align-content: center;
+  right: 2vw;
+  transition: 0.5s; }
+  .arr-right__text {
+    color: #D5703B;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: end;
+    margin-top: -5px; }
+
+.arr-left {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  align-content: center;
+  left: 2vw;
+  transition: 0.5s; }
+  .arr-left__text {
+    color: #D5703B;
+    margin-top: 4px;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: 100;
+    text-transform: uppercase; }
+
+.arr-right:hover, .arr-left:hover {
+  opacity: 0.7; }
+
+.slider__btn {
+  width: 0;
+  height: 0;
+  border-left: 2.1rem solid transparent;
+  border-right: 2.1rem solid transparent;
+  border-top: 2.6rem solid #D5703B;
+  cursor: pointer; }
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none; }
+
+.dots__dot {
+  border: none;
+  background-color: #01285b;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s; }
+
+.dots__dot:last-child {
+  margin: 0; }
+
+.dots__dot--active {
+  /* background-color: #fff; */
+  background-color: #00c1ff;
+  opacity: 1; }
+
+.pad {
+  padding-left: 8vw;
+  padding-right: 9vw; }
+
+.padr {
+  padding-right: 7vw; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .padr {
+      padding-right: 3vw; } }
+
+.container-sec-2,
+.container-sec-3 {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column; }
+  .container-sec-2__left,
+  .container-sec-3__left {
+    width: 74%; }
+  .container-sec-2__right,
+  .container-sec-3__right {
+    width: 80%;
+    align-self: center;
+    margin-top: 6rem;
+    margin-bottom: 10em; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    align-items: initial; }
+  .arr-right__text,
+  .arr-left__text {
+    display: none; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 60px; } }
+
+.slideshow-container {
+  width: 100vw;
+  height: 100vh;
+  position: relative; }
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none; }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px; }
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center; }
+
+/* Number text (1/3 etc) */
+.numbertext2 {
+  color: red;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0; }
+
+.slideshow-number {
+  color: #000;
+  font-size: 1.9rem;
+  line-height: 4rem;
+  font-weight: 900;
+  text-transform: uppercase; }
+  .slideshow-number--blue-lighter {
+    color: #00c1ff; }
+  .slideshow-number--green {
+    color: #00ae43; }
+  .slideshow-number--yellow {
+    color: #c0b800; }
+  .slideshow-number--orange {
+    color: #D5703B; }
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease; }
+
+.active,
+.dot:hover {
+  background-color: #717171; }
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s; }
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fade {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next,
+  .text {
+    font-size: 11px; } }
+
+.shake-arrow {
+  animation: shake-arrow-y 3s infinite; }
+
+@keyframes shake-arrow-y {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateX(25px); }
+  60% {
+    transform: translateX(15px); } }
+
+.shake-arrow-bottom {
+  animation: shake-arrow-x 3s infinite; }
+
+@keyframes shake-arrow-x {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(25px); }
+  60% {
+    transform: translateY(15px); } }
+
+.section_1 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../img/section_1-background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section_1 {
+      display: none; } }
+  @media only screen and (max-width: 43.7em) {
+    .section_1 {
+      display: none; } }
+
+.graphic-element {
+  width: 100%;
+  height: 11.2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .graphic-element {
+      display: none; } }
+  @media only screen and (max-width: 43.7em) {
+    .graphic-element {
+      display: none; } }
+
+.graphic-element img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
+
+.section--2 {
+  background-image: url(../img/section2-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section--2 {
+      background-image: url(../img/section2-background-tablet.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section--2 {
+      background-image: url(../img/section2-background-mobile.svg);
+      padding-top: 0; } }
+
+.wrapper2 {
+  height: 100vh !important;
+  justify-content: flex-start !important; }
+
+.content1 {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start; }
+
+.header2 {
+  padding-top: 8rem;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 3rem; }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--1 {
+    flex: 5;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--1 {
+        flex: 9; } }
+  .container1__right--1 {
+    align-self: flex-end;
+    flex: 7; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--1 {
+        flex: 3; } }
+
+.section2-text__number {
+  font-family: "bentonsansextra_light";
+  color: #FFB81D;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section2-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section2-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section2-text__title {
+  font-family: "bentonsansbook";
+  color: #FFB81D;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section2-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section2-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section2-text__subtitle {
+  font-family: #FFB81D;
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section2-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section2-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section2-text__text {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 3.2rem !important;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section2-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section2-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+
+.section2-button {
+  background-image: linear-gradient(90deg, #EA8E04 0%, #FFB81D 100%);
+  margin-bottom: 3rem !important; }
+
+.section2-photo {
+  position: relative;
+  bottom: -10px;
+  right: 6rem;
+  width: 100%; }
+
+.section2-photo-tablet {
+  width: 100%;
+  height: 100%; }
+
+.section2-element {
+  position: absolute;
+  bottom: 0;
+  right: 15%;
+  width: 77.6rem; }
+
+.element-image {
+  position: absolute;
+  width: 100%;
+  bottom: -10px; }
+
+.element-image-tablet {
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
+
+.arrows-content {
+  display: flex; }
+
+.arrow-button2 {
+  color: #0A2240 !important; }
+
+.image-container {
+  position: relative; }
+
+.image-pca-pce {
+  width: 100%;
+  height: auto; }
+
+.captions__text {
+  color: #006cb9;
+  font-weight: 100;
+  font-size: 2.1rem;
+  line-height: 2.4rem;
+  padding: 1rem 5rem; }
+  .captions__text--white {
+    color: #fff; }
+
+.captions__pca {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  clip-path: polygon(0 0, 100% 0, 89% 100%, 0% 100%); }
+
+.captions__pce {
+  position: absolute;
+  right: 0;
+  bottom: -2rem;
+  background-color: #006cb9;
+  clip-path: polygon(11% 0, 100% 0, 100% 100%, 0 100%); }
+
+.section--3 {
+  min-height: 100vh;
+  background-image: url(../img/section3-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section--3 {
+      background-image: url(../img/section3-background-tablet.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section--3 {
+      background-image: url(../img/section3-background-phone.svg);
+      padding-top: 0; } }
+
+.content3 {
+  display: flex;
+  width: 86vw;
+  justify-content: flex-start; }
+
+.header3 {
+  padding-top: 8rem;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5rem; }
+
+.margin-bottom-30 {
+  margin-bottom: 3rem !important; }
+
+.container3 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container3 {
+      align-items: center; } }
+  .container3__left--3 {
+    flex: 2;
+    align-self: center; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container3__left--3 {
+        flex: 9; } }
+  .container3__right--3 {
+    align-self: flex-end;
+    flex: 5; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container3__right--3 {
+        flex: 3; } }
+
+.section3-text__number {
+  font-family: "bentonsansextra_light";
+  color: #4DAA51;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section3-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section3-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section3-text__title {
+  font-family: "bentonsansbook";
+  color: #4DAA51;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 3rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section3-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section3-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 3rem; } }
+
+.section3-button {
+  background-image: linear-gradient(90deg, #19811E 0%, #4DAA51 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section3-button {
+      margin-top: 6rem;
+      margin-bottom: 13rem !important; } }
+  @media only screen and (max-width: 43.7em) {
+    .section3-button {
+      margin-bottom: 5rem !important; } }
+
+.section3-container {
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 4rem;
+  background-color: hotpink; }
+
+.resultados__title {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  margin-bottom: 1.7rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .resultados__title {
+      font-size: 2.4rem;
+      line-height: 3.6rem;
+      margin-top: 6rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .resultados__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem;
+      line-height: 1.1rem; } }
+
+.resultados__number {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 10rem;
+  line-height: 10.1rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .resultados__number {
+      font-size: 8rem;
+      line-height: 9rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .resultados__number {
+      font-size: 3.8rem;
+      line-height: 4rem; } }
+
+.resultados__description {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  margin-bottom: 6rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .resultados__description {
+      font-size: 2.4rem;
+      line-height: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .resultados__description {
+      font-size: 2.1rem;
+      line-height: 2.8rem;
+      margin-bottom: 3rem; } }
+
+.results-line {
+  width: 32rem;
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #4DAA51 0%, rgba(77, 170, 81, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.7rem; }
+  @media only screen and (max-width: 43.7em) {
+    .results-line {
+      height: 0.4rem;
+      width: 25rem;
+      margin-bottom: 1.3rem; } }
+
+.section3-graph-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between; }
+  @media only screen and (max-width: 43.7em) {
+    .section3-graph-container {
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section3-graph-container__last {
+      margin-bottom: 4rem; } }
+
+.resultado-liquido {
+  border-left: 0.6rem solid #c0b800;
+  padding-left: 2rem;
+  text-transform: uppercase; }
+  .resultado-liquido__title {
+    color: #00c1ff;
+    line-height: 2.6rem;
+    font-size: 2.1rem;
+    font-weight: 400;
+    margin-bottom: 3rem; }
+  .resultado-liquido__number {
+    color: #fff;
+    font-size: 11rem;
+    font-weight: 900;
+    line-height: 9.8rem; }
+  .resultado-liquido__unity {
+    color: #fff;
+    font-size: 2.9rem;
+    font-weight: 900; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .resultado-liquido__unity {
+        font-weight: 400; } }
+
+.fix-flex {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center; }
+
+.graph-mobile-container {
+  display: flex;
+  width: 93%;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 0.6rem solid #c0b800;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  .graph-mobile-container__icon {
+    height: 6rem;
+    margin-right: 1rem; }
+  .graph-mobile-container__title {
+    color: #00c1ff;
+    font-size: 2.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 2.6rem; }
+  .graph-mobile-container__percentage {
+    color: #00c1ff;
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 2.6rem; }
+  .graph-mobile-container__arrow {
+    color: #c0b800;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 2.6rem;
+    padding-bottom: 1.5rem; }
+    .graph-mobile-container__arrow--3 {
+      visibility: hidden; }
+
+.visibility {
+  visibility: hidden !important; }
+
+.global-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 6rem;
+  margin-top: 3rem;
+  position: relative; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .global-items {
+      margin-top: 6rem;
+      justify-content: flex-start;
+      column-gap: 12rem;
+      row-gap: 4rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .global-items {
+      margin-top: 6rem;
+      justify-content: flex-start;
+      column-gap: 6rem;
+      row-gap: 2rem; } }
+
+.global-item {
+  padding-bottom: 3.1rem; }
+  .global-item__icon {
+    height: 4rem;
+    width: auto;
+    margin-bottom: 3rem; }
+  .global-item__text {
+    padding-left: 2rem;
+    color: #01285b;
+    border-left: 0.6rem solid #D5703B;
+    text-transform: uppercase; }
+    .global-item__text--number {
+      font-weight: 900;
+      font-size: 7rem;
+      line-height: 8rem; }
+      @media only screen and (max-width: 43.7em) {
+        .global-item__text--number {
+          font-size: 3.7rem;
+          line-height: 7rem; } }
+    .global-item__text--title {
+      font-weight: 400;
+      font-size: 2.1rem;
+      line-height: 1.5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .global-item {
+      width: 40%; } }
+  @media only screen and (max-width: 43.7em) {
+    .global-item {
+      width: 35%; } }
+
+.heroes-item {
+  text-align: center; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .heroes-item {
+      display: flex;
+      text-align: left;
+      column-gap: 6rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .heroes-item {
+      display: flex; } }
+  .heroes-item__icon {
+    height: 13.4rem;
+    width: auto;
+    margin-bottom: 3rem; }
+  .heroes-item__text {
+    color: #00c1ff;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 5rem; }
+    .heroes-item__text--number {
+      font-weight: 900;
+      font-size: 7rem;
+      line-height: 8rem; }
+    .heroes-item__text--title {
+      font-weight: 400;
+      font-size: 2.1rem;
+      line-height: 2.6rem;
+      text-align: center; }
+      @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+        .heroes-item__text--title {
+          text-align: left; } }
+      @media only screen and (max-width: 43.7em) {
+        .heroes-item__text--title {
+          text-align: left; } }
+
+.hero-men {
+  animation: mymove 9s ease-in-out infinite; }
+
+@keyframes mymove {
+  0% {
+    transform: translateY(0);
+    transform: translateX(0); }
+  15% {
+    transform: translateY(-30px) translateX(60px); }
+  30% {
+    transform: translateY(-50px) translateX(50px); }
+  50% {
+    transform: translateY(0) translateX(0); }
+  70% {
+    transform: translateY(-50px) translateX(-50px); }
+  100% {
+    transform: translateY(0) translateX(0); } }
+
+.graph-line {
+  display: flex;
+  margin-bottom: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .graph-line {
+      display: block; } }
+
+.graph-line-tablet {
+  display: flex;
+  margin-bottom: 3rem; }
+
+.bar-numbers {
+  margin-left: 1.5rem;
+  display: flex;
+  flex-direction: column; }
+  @media only screen and (max-width: 43.7em) {
+    .bar-numbers {
+      margin-left: 0;
+      flex-direction: row;
+      align-items: center; } }
+
+.arrowIcon {
+  width: 1.2rem;
+  margin-left: 2rem;
+  margin-right: 0.3rem;
+  margin-top: 0.3rem; }
+
+.line1 {
+  display: flex;
+  align-items: flex-start; }
+
+.bar-entry {
+  opacity: 0;
+  height: 6.5rem;
+  background-image: linear-gradient(90deg, #0072CE 0%, #B5BD00 100%);
+  position: relative; }
+  .bar-entry--1 {
+    width: 21.91%; }
+  .bar-entry--2 {
+    width: 31.48%; }
+  .bar-entry--3 {
+    width: 60%; }
+  .bar-entry--4 {
+    width: 10.6%; }
+  .bar-entry--5 {
+    width: 60%; }
+  .bar-entry--6 {
+    width: 41.4%; }
+  @media only screen and (max-width: 43.7em) {
+    .bar-entry {
+      height: 4rem; } }
+  .bar-entry__text {
+    color: #fff;
+    font-family: "bentonsansbook";
+    font-size: 2.4rem;
+    line-height: 3.2rem; }
+    @media only screen and (max-width: 43.7em) {
+      .bar-entry__text {
+        font-size: 1.6rem;
+        line-height: 2.6rem; } }
+    .bar-entry__text--percentage {
+      color: #006cb9;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 1.9rem;
+      line-height: 2.3rem; }
+
+.bar-animated {
+  opacity: 1;
+  animation: growing_bar 1.5s ease-in-out;
+  animation-delay: 0.3s; }
+
+.bar-animated-mobile {
+  opacity: 1;
+  animation: growing_bar-mobile 1.5s ease-in-out;
+  animation-fill-mode: forwards; }
+
+@keyframes growing_bar {
+  0% {
+    opacity: 1;
+    width: 0px; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+@keyframes growing_bar-mobile {
+  0% {
+    opacity: 1;
+    width: 0px; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.block-fade-right {
+  animation: fade-right 1.5s ease-in-out; }
+
+@keyframes fade-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px); }
+  20% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+.block-grow {
+  animation: grow 1s ease-in-out; }
+
+@keyframes grow {
+  0% {
+    opacity: 0;
+    transform: scale(0); }
+  20% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: scale(1); } }
+
+.bar-entry::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  bottom: 0;
+  right: 0;
+  z-index: -20;
+  transform: scaleX(1); }
+
+.bar-number {
+  color: #fff;
+  font-family: "bentonsansbold";
+  font-size: 2.4rem;
+  line-height: 3.2rem; }
+  @media only screen and (max-width: 43.7em) {
+    .bar-number {
+      font-size: 1.6rem;
+      line-height: 2.6rem; } }
+
+.clientes-cib {
+  padding-bottom: 3.1rem; }
+  .clientes-cib__icon {
+    height: 4rem;
+    width: auto;
+    margin-bottom: 3rem; }
+  .clientes-cib__text {
+    padding-left: 2rem;
+    color: #006cb9;
+    border-left: 0.6rem solid #D5703B;
+    text-transform: uppercase;
+    margin-bottom: 6rem; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .clientes-cib__text {
+        height: fit-content; } }
+    .clientes-cib__text--number {
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 6rem; }
+    .clientes-cib__text--title {
+      font-weight: 400;
+      font-size: 2.1rem;
+      line-height: 1.5rem; }
+
+.unity-kwanzas {
+  color: #01285b;
+  font-weight: 700;
+  font-size: 2.1rem;
+  line-height: 1.5rem;
+  margin-bottom: 3rem; }
+
+.direction-right--4-1 {
+  margin-left: 10.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .direction-right--4-1 {
+      margin-left: 0rem;
+      width: 100%;
+      flex-direction: row-reverse; } }
+
+.stores {
+  display: flex; }
+
+.store {
+  width: 19.1rem;
+  height: 6.4rem; }
+  .store--2 {
+    margin-left: 1rem;
+    margin-right: 3rem; }
+  @media only screen and (max-width: 43.7em) {
+    .store {
+      width: 15.1rem;
+      height: 5.4rem; } }
+
+.sb24 {
+  display: flex;
+  align-items: center; }
+  .sb24__image {
+    width: 11.5rem;
+    height: auto;
+    margin-right: 4rem;
+    margin-left: -0.6rem; }
+    @media only screen and (max-width: 43.7em) {
+      .sb24__image {
+        margin-right: 0;
+        width: 68px;
+        height: 127px;
+        margin-top: -1rem;
+        margin-bottom: -1.6rem; } }
+
+.negative-margin-top {
+  margin-top: -6rem !important; }
+
+.section-4-2-mobile {
+  display: flex;
+  justify-content: space-between; }
+
+.graphs-mobile {
+  width: 70%; }
+  @media only screen and (max-width: 43.7em) {
+    .graphs-mobile {
+      width: 100%; } }
+
+.line-4-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  column-gap: 12rem; }
+
+.container-tablet-4-3 {
+  flex-direction: column !important;
+  align-items: flex-start !important; }
+
+.section--4-1 {
+  background-position: center !important;
+  min-height: 100vh;
+  background-image: url(../img/section4-1-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section--4-1 {
+      background-image: url(../img/section4-1-background-tablet.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section--4-1 {
+      background-image: url(../img/section4-1-background-mobile.svg);
+      padding-top: 0; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.header4 {
+  padding-top: 8rem;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.section4-1-text__number {
+  font-family: "bentonsansextra_light";
+  color: #B5BD00;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-1-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section4-1-text__title {
+  font-family: "bentonsansbook";
+  color: #B5BD00;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-1-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section4-1-text__subtitle {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-1-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section4-1-text__text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-1-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-1 {
+    flex: 6;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-1 {
+        flex: 9; } }
+  .container1__right--4-1 {
+    align-self: flex-end;
+    flex: 4; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-1 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+.container-numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem !important; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__line-5 {
+  width: 18.1rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.section-4-2 {
+  min-height: 100vh;
+  background-image: url(../img/section4-2-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-4-2 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-4-2 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      padding-top: 0; } }
+
+.wrapper-4-2 {
+  margin-left: 7vw;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-content: flex-end;
+  overflow: hidden; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.section4-2-text__number {
+  font-family: "bentonsansextra_light";
+  color: #B5BD00;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-2-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section4-2-text__title {
+  font-family: "bentonsansbook";
+  color: #B5BD00;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-2-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section4-2-text__subtitle {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-2-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section4-2-text__text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-2-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-2 {
+    flex: 5 !important;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-2 {
+        flex: 9; } }
+  .container1__right--4-2 {
+    align-self: flex-start;
+    flex: 7 !important; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-2 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.gap-container {
+  gap: 16rem !important; }
+
+.indicators__title-white {
+  color: #fff !important; }
+
+.indicators4-2 {
+  margin-bottom: 9.6rem; }
+
+.graph-mobile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem; }
+
+.section4-1-button-margin {
+  margin-top: 4rem;
+  margin-bottom: 8rem !important; }
+
+.section4-2-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-button {
+      margin-top: 4rem;
+      margin-bottom: 6rem !important; } }
+
+.section-4-3 {
+  background-position: center !important;
+  min-height: 100vh;
+  background-image: url(../img/section4-3-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-4-3 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-4-3 {
+      background-image: none;
+      background-color: #FBFCF2;
+      padding-top: 0; } }
+
+.wrapper-4-2 {
+  margin-left: 7vw;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-content: flex-end;
+  overflow: hidden; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.section4-3-text__subtitle {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-3-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-3-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 1.2rem; } }
+
+.section4-3-text__text {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-3-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section4-3-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-2 {
+    flex: 4;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-2 {
+        flex: 9; } }
+  .container1__right--4-2 {
+    align-self: flex-start;
+    flex: 8; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-2 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem;
+      height: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.gap-container {
+  gap: 16rem !important; }
+
+.indicators__title-white {
+  color: #fff !important; }
+
+.indicators4-2 {
+  margin-bottom: 9.6rem; }
+
+.graph-mobile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem; }
+
+.section4-1-button-margin {
+  margin-top: 4rem;
+  margin-bottom: 8rem !important; }
+
+.section4-2-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-button {
+      margin-top: 4rem;
+      margin-bottom: 6rem !important; } }
+
+.indicators-flex {
+  display: flex;
+  gap: 12rem; }
+
+.graph-text-blue {
+  color: #0A2240 !important; }
+
+.element-container-section4-3 {
+  margin-top: 0rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-3 {
+      margin-top: 0rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-container-section4-3 {
+      margin-bottom: -1rem; } }
+
+.button4-3 {
+  position: absolute;
+  bottom: 10rem; }
+
+.container-indicators-mobile4-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.section-4-4 {
+  min-height: 100vh;
+  background-image: url(../img/section4-4-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-4-4 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-4-4 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      padding-top: 0; } }
+
+.wrapper-4-2 {
+  margin-left: 7vw;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-content: flex-end;
+  overflow: hidden; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-2 {
+    flex: 4;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-2 {
+        flex: 9; } }
+  .container1__right--4-2 {
+    align-self: flex-start;
+    flex: 8; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-2 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem;
+      height: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.gap-container {
+  gap: 16rem !important; }
+
+.indicators__title-white {
+  color: #fff !important; }
+
+.indicators4-2 {
+  margin-bottom: 9.6rem; }
+
+.graph-mobile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem; }
+
+.section4-1-button-margin {
+  margin-top: 4rem;
+  margin-bottom: 8rem !important; }
+
+.section4-2-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-button {
+      margin-top: 4rem;
+      margin-bottom: 6rem !important; } }
+
+.indicators-flex {
+  display: flex;
+  gap: 12rem; }
+
+.graph-text-blue {
+  color: #0A2240 !important; }
+
+.element-container-section4-3 {
+  margin-top: 0rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-3 {
+      margin-top: 0rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-container-section4-3 {
+      margin-bottom: -1rem; } }
+
+.button4-3 {
+  position: absolute;
+  bottom: 10rem; }
+
+.container-indicators-mobile4-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.margin-topp-90 {
+  margin-top: 9rem !important; }
+
+.margin-bottom-3 {
+  margin-bottom: 3rem !important; }
+
+.section-4-5 {
+  background-position: center !important;
+  min-height: 100vh;
+  background-image: url(../img/section4-5-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-4-5 {
+      background-color: #FBFCF2;
+      background-image: none;
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-4-5 {
+      background-color: #FBFCF2;
+      background-image: none;
+      padding-top: 0; } }
+
+.wrapper-4-2 {
+  margin-left: 7vw;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-content: flex-end;
+  overflow: hidden; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-5 {
+    flex: 6;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-5 {
+        flex: 9; } }
+  .container1__right--4-5 {
+    align-self: flex-start;
+    flex: 6;
+    display: flex;
+    gap: 20%; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-5 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem;
+      height: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.gap-container {
+  gap: 16rem !important; }
+
+.indicators__title-white {
+  color: #fff !important; }
+
+.indicators4-2 {
+  margin-bottom: 9.6rem; }
+
+.graph-mobile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem; }
+
+.section4-1-button-margin {
+  margin-top: 4rem;
+  margin-bottom: 8rem !important; }
+
+.section4-2-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-button {
+      margin-top: 4rem;
+      margin-bottom: 6rem !important; } }
+
+.indicators-flex {
+  display: flex;
+  gap: 12rem; }
+
+.graph-text-blue {
+  color: #0A2240 !important; }
+
+.element-container-section4-3 {
+  margin-top: 0rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-3 {
+      margin-top: 0rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-container-section4-3 {
+      margin-bottom: -1rem; } }
+
+.button4-3 {
+  position: absolute;
+  bottom: 10rem; }
+
+.container-indicators-mobile4-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.indicators4-5 {
+  margin-bottom: 4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .indicators4-5 {
+      width: 45%; } }
+  @media only screen and (max-width: 43.7em) {
+    .indicators4-5 {
+      width: 45%; } }
+  .indicators4-5__icon {
+    height: 5rem; }
+    @media only screen and (max-width: 43.7em) {
+      .indicators4-5__icon {
+        width: 3rem; } }
+  .indicators4-5__title {
+    font-family: "bentonsansbook";
+    color: #fff;
+    font-size: 2.6rem; }
+  .indicators4-5__line {
+    height: 0.4rem;
+    background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+    border-radius: 99px;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem; }
+    @media only screen and (max-width: 43.7em) {
+      .indicators4-5__line {
+        height: 0.4rem;
+        width: 100% !important;
+        margin-bottom: 0.9rem;
+        margin-top: 0.9rem; } }
+  .indicators4-5__line-1 {
+    width: 18.1rem; }
+  .indicators4-5__line-2 {
+    width: 13rem; }
+  .indicators4-5__line-3 {
+    width: 10rem; }
+  .indicators4-5__line-4 {
+    width: 22rem; }
+  .indicators4-5__line-5 {
+    width: 11rem; }
+  .indicators4-5__line-6 {
+    width: 24rem; }
+  .indicators4-5__number {
+    font-family: "bentonsansbold";
+    color: #fff;
+    font-size: 3.2rem; }
+
+.gap-container-4-5 {
+  gap: 20% !important; }
+
+.indicators-flex-4-5 {
+  display: flex;
+  flex-direction: column; }
+
+.section-4---6 {
+  background-position: center !important;
+  min-height: 100vh;
+  background-image: url(../img/section4-6-background.png) !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-4---6 {
+      background-image: url(../img/section4-2-background-mobile.svg) !important;
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-4---6 {
+      background-image: url(../img/section4-2-background-mobile.svg) !important;
+      padding-top: 0; } }
+
+.wrapper-4-2 {
+  margin-left: 7vw;
+  max-width: 86vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  align-content: flex-end;
+  overflow: hidden; }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+@media only screen and (max-width: 43.7em) {
+  .wrapper {
+    min-height: 0 !important; } }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--4-5 {
+    flex: 6;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--4-5 {
+        flex: 9; } }
+  .container1__right--4-5 {
+    align-self: flex-start;
+    flex: 6;
+    display: flex;
+    gap: 20%; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--4-5 {
+        flex: 3; } }
+
+.section4-1-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-1-button {
+      margin-top: 6rem;
+      margin-bottom: 6rem !important;
+      margin-left: 8rem; } }
+
+@media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+  .indicators {
+    width: 45%; } }
+
+@media only screen and (max-width: 43.7em) {
+  .indicators {
+    width: 45%; } }
+
+.indicators__icon {
+  margin-bottom: 1.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__icon {
+      width: 5rem;
+      height: 5rem; } }
+
+.indicators__title {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 3.2rem;
+  line-height: 3.8rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__title {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.indicators__line {
+  height: 0.4rem;
+  background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__line {
+      height: 0.4rem;
+      width: 100% !important;
+      margin-bottom: 0.9rem;
+      margin-top: 0.9rem; } }
+
+.indicators__line-1 {
+  width: 15.4rem; }
+
+.indicators__line-2 {
+  width: 21.8rem; }
+
+.indicators__line-3 {
+  width: 13rem; }
+
+.indicators__line-4 {
+  width: 9.4rem; }
+
+.indicators__number {
+  font-family: "bentonsansbold";
+  color: #0A2240;
+  font-size: 4.6rem;
+  line-height: 5.4rem; }
+  @media only screen and (max-width: 43.7em) {
+    .indicators__number {
+      font-size: 2.1rem;
+      line-height: 2.8rem; } }
+
+.wrapper-section4-1 {
+  z-index: 100000; }
+
+.container-indicators-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.button-section4-1-color {
+  color: #B5BD00 !important; }
+
+.element-container-section4-1 {
+  margin-top: -15rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-1 {
+      margin-top: -30rem; } }
+
+.element4-1 {
+  width: 50%; }
+
+.button4-1 {
+  position: absolute;
+  bottom: 5rem; }
+
+.section4-1-button-mobile {
+  background-image: none;
+  background-color: white; }
+
+.wrapper-clear {
+  padding-top: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper-clear {
+      padding-top: 0 !important; } }
+
+.gap-container {
+  gap: 16rem !important; }
+
+.indicators__title-white {
+  color: #fff !important; }
+
+.indicators4-2 {
+  margin-bottom: 9.6rem; }
+
+.graph-mobile-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem; }
+
+.section4-1-button-margin {
+  margin-top: 4rem;
+  margin-bottom: 8rem !important; }
+
+.section4-2-button {
+  background-image: linear-gradient(90deg, #929803 0%, #B5BD00 100%);
+  margin-bottom: 0 !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section4-2-button {
+      margin-top: 4rem;
+      margin-bottom: 6rem !important; } }
+
+.indicators-flex {
+  display: flex;
+  gap: 12rem; }
+
+.graph-text-blue {
+  color: #0A2240 !important; }
+
+.element-container-section4-3 {
+  margin-top: 0rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-container-section4-3 {
+      margin-top: 0rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-container-section4-3 {
+      margin-bottom: -1rem; } }
+
+.button4-3 {
+  position: absolute;
+  bottom: 10rem; }
+
+.container-indicators-mobile4-3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem; }
+
+.indicators4-5 {
+  margin-bottom: 4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .indicators4-5 {
+      width: 45%; } }
+  @media only screen and (max-width: 43.7em) {
+    .indicators4-5 {
+      width: 45%; } }
+  .indicators4-5__icon {
+    height: 5rem; }
+    @media only screen and (max-width: 43.7em) {
+      .indicators4-5__icon {
+        width: 3rem; } }
+  .indicators4-5__title {
+    font-family: "bentonsansbook";
+    color: #fff;
+    font-size: 2.6rem; }
+  .indicators4-5__line {
+    height: 0.4rem;
+    background-image: linear-gradient(90deg, #B5BD00 0%, rgba(181, 189, 0, 0) 104.72%);
+    border-radius: 99px;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem; }
+    @media only screen and (max-width: 43.7em) {
+      .indicators4-5__line {
+        height: 0.4rem;
+        width: 100% !important;
+        margin-bottom: 0.9rem;
+        margin-top: 0.9rem; } }
+  .indicators4-5__line-1 {
+    width: 18.1rem; }
+  .indicators4-5__line-2 {
+    width: 13rem; }
+  .indicators4-5__line-3 {
+    width: 10rem; }
+  .indicators4-5__line-4 {
+    width: 22rem; }
+  .indicators4-5__line-5 {
+    width: 11rem; }
+  .indicators4-5__line-6 {
+    width: 24rem; }
+  .indicators4-5__number {
+    font-family: "bentonsansbold";
+    color: #fff;
+    font-size: 3.2rem; }
+
+.gap-container-4-5 {
+  gap: 20% !important; }
+
+.indicators-flex-4-5 {
+  display: flex;
+  flex-direction: column; }
+
+.section---5 {
+  min-height: 100vh;
+  background-image: url(../img/section5-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section---5 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      margin-top: 0rem;
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section---5 {
+      background-image: url(../img/section4-2-background-mobile.svg);
+      margin-top: 0rem;
+      padding-top: 0; } }
+
+.content5 {
+  display: flex;
+  width: 84vw;
+  justify-content: flex-start; }
+
+.header5 {
+  padding-top: 8rem;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0; }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left---5 {
+    width: 100%;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left---5 {
+        flex: 9; } }
+  .container1__right---5 {
+    align-self: flex-end;
+    width: 0%; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right---5 {
+        flex: 3; } }
+
+.section5-text__number {
+  font-family: "bentonsansextra_light";
+  color: #E7B78A;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section5-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section5-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section5-text__title {
+  font-family: "bentonsansbook";
+  color: #E7B78A;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section5-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section5-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section5-text__subtitle {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 3rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section5-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section5-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section5-text__text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section5-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section5-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section5-button {
+  background-image: linear-gradient(90deg, #BF8249 0%, #E7B78A 100%);
+  margin-bottom: 9rem !important;
+  margin-top: 3rem !important; }
+
+.section1-photo {
+  position: relative;
+  bottom: -10px;
+  width: 100%; }
+
+.section5-boxes-container {
+  display: flex;
+  width: 84vw;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 4rem; }
+
+.box-content {
+  width: 50vw;
+  height: 18rem;
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  background-image: linear-gradient(90deg, rgba(4, 15, 33, 0.8), rgba(4, 15, 33, 0.2));
+  border-radius: 1rem;
+  padding: 3rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .box-content {
+      width: 100%;
+      height: auto;
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      justify-content: flex-start; } }
+  @media only screen and (max-width: 43.7em) {
+    .box-content {
+      width: 100%;
+      height: auto;
+      padding: 1.6rem;
+      margin-bottom: 1rem;
+      justify-content: flex-start; } }
+
+.box-content-text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .box-content-text {
+      font-size: 1.6rem;
+      line-height: 2.4rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .box-content-text {
+      font-size: 1.6rem;
+      line-height: 2.4rem; } }
+
+b {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 2.4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    b {
+      font-size: 1.6rem; } }
+  @media only screen and (max-width: 43.7em) {
+    b {
+      font-size: 1.6rem; } }
+
+.section---6 {
+  background-image: url(../img/section6-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section---6 {
+      background-image: url(../img/section6-background-mobile.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section---6 {
+      background-image: url(../img/section6-background-mobile.svg);
+      padding-top: 0; } }
+
+.content1 {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start; }
+
+.header2 {
+  padding-top: 8rem;
+  width: 86vw;
+  display: flex;
+  justify-content: space-between; }
+
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container1 {
+      align-items: center; } }
+  .container1__left--6 {
+    flex: 5;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__left--6 {
+        flex: 9; } }
+  .container1__right--6 {
+    align-self: flex-end;
+    flex: 3; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container1__right--6 {
+        flex: 3; } }
+
+.section6-text__number {
+  font-family: "bentonsansextra_light";
+  color: #FF681D;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section6-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section6-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section6-text__title {
+  font-family: "bentonsansbook";
+  color: #FF681D;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section6-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-botto2: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section6-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section6-text__subtitle {
+  font-family: #FFB81D;
+  color: #FF681D;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section6-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section6-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section6-text__text {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  margin-bottom: 5rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section6-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section6-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.section6-button {
+  background-image: linear-gradient(90deg, #B9470F 0%, #FF681D 100%);
+  margin-bottom: 6rem !important;
+  margin-top: 4rem !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section6-button {
+      background-image: none;
+      background-color: white;
+      margin-bottom: 18rem !important; } }
+  @media only screen and (max-width: 43.7em) {
+    .section6-button {
+      background-image: none;
+      background-color: white;
+      margin-bottom: 2rem !important; } }
+
+.button-section6-color {
+  color: #FF681D !important; }
+
+.section2-photo {
+  position: relative;
+  bottom: -10px;
+  right: 6rem;
+  height: 100%; }
+
+.section2-photo-tablet {
+  width: 100%;
+  height: 100%; }
+
+.section2-element {
+  position: absolute;
+  bottom: 0;
+  right: 15%;
+  width: 77.6rem; }
+
+.element-image {
+  position: absolute;
+  width: 100%;
+  bottom: -10px; }
+
+.element-image-tablet {
+  position: absolute;
+  width: 100%;
+  bottom: 0; }
+
+.arrows-content {
+  display: flex; }
+
+.arrow-button2 {
+  color: #0A2240 !important; }
+
+.section6-element {
+  margin-bottom: 4rem; }
+  .section6-element__title {
+    font-family: "bentonsansbook";
+    color: #0A2240;
+    font-size: 2.4rem;
+    line-height: 3.2rem; }
+    @media only screen and (max-width: 43.7em) {
+      .section6-element__title {
+        font-size: 2.1rem;
+        line-height: 2.8rem; } }
+  .section6-element__line {
+    height: 0.4rem;
+    width: 14.5rem;
+    background-image: linear-gradient(90deg, #FF681D 0%, rgba(255, 104, 29, 0) 104.72%);
+    border-radius: 99px;
+    margin-bottom: 2rem;
+    margin-top: 1.3rem; }
+    @media only screen and (max-width: 43.7em) {
+      .section6-element__line {
+        height: 0.4rem;
+        width: 100% !important;
+        margin-bottom: 0.9rem;
+        margin-top: 0.9rem; } }
+    .section6-element__line--1 {
+      width: 15.9rem !important; }
+    .section6-element__line--2 {
+      width: 17.4rem !important; }
+    .section6-element__line--3 {
+      width: 20.0rem !important; }
+  .section6-element__box {
+    width: 68rem;
+    height: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgba(255, 104, 29, 0.5), rgba(255, 105, 29, 0));
+    border-radius: 1rem;
+    padding: 2rem; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .section6-element__box {
+        width: 100% !important; } }
+    @media only screen and (max-width: 43.7em) {
+      .section6-element__box {
+        width: 100%; } }
+  .section6-element__text {
+    font-family: "bentonsansbold";
+    color: #0A2240;
+    font-size: 2.4rem;
+    line-height: 3.2rem; }
+    @media only screen and (max-width: 43.7em) {
+      .section6-element__text {
+        font-size: 2.1rem;
+        line-height: 2.8rem; } }
+    @media only screen and (max-width: 376px) {
+      .section6-element__text {
+        font-size: 1.8rem;
+        line-height: 2.7rem; } }
+
+.element-container-section6 {
+  margin-top: -3rem; }
+
+\
+.margin-bottom-50 {
+  margin-bottom: 5rem !important; }
+
+.section-8 {
+  background-position: center !important;
+  height: 100vh;
+  background-image: url(../img/section8-background.svg); }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-8 {
+      min-height: none !important;
+      background-image: url(../img/section8-background-mobile.svg);
+      padding-top: 0; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-8 {
+      min-height: none !important;
+      background-image: url(../img/section8-background-mobile.svg) !important;
+      padding-top: 0; } }
+
+.section-8-mobile {
+  background-position: center !important;
+  background-image: url(../img/section8-background-mobile.svg); }
+
+.section8-text__number {
+  font-family: "bentonsansextra_light";
+  color: #fff;
+  font-size: 10rem;
+  line-height: 10.1rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section8-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section8-text__number {
+      font-size: 5rem;
+      line-height: 6rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem; } }
+
+.section8-text__title {
+  font-family: "bentonsansbook";
+  color: #00A9E0;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section8-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section8-text__title {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 2rem; } }
+
+.section8-text__subtitle {
+  font-family: "bentonsansbold";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section8-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section8-text__subtitle {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 1.2rem; } }
+
+.section8-text__text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section8-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section8-text__text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 2rem; } }
+
+.container8 {
+  display: flex;
+  width: 100%;
+  height: 100%; }
+  @media only screen and (max-width: 43.7em) {
+    .container8 {
+      align-items: center; } }
+  .container8__left--8 {
+    flex: 4;
+    align-self: flex-start; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container8__left--8 {
+        flex: 9; } }
+  .container8__right--8 {
+    align-self: flex-start;
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-direction: column;
+    flex: 7; }
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      .container8__right--8 {
+        flex: 3; } }
+
+.button-sec8--downloads {
+  width: 100% !important;
+  min-height: 6.5rem;
+  vertical-align: baseline; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .button-sec8--downloads {
+      min-height: 6rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .button-sec8--downloads {
+      min-height: 6rem; } }
+
+.button8, .button8:link, .button8:visited, .button8:focus {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: #fff;
+  border: 0.3rem solid #fff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  font-size: 2.1rem;
+  font-family: 'bentonsansregular';
+  cursor: pointer;
+  width: 30rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .button8, .button8:link, .button8:visited, .button8:focus {
+      font-size: 1.6rem;
+      padding: 1rem 2.5rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .button8, .button8:link, .button8:visited, .button8:focus {
+      font-size: 1.6rem; } }
+
+.button8__navbar-1 {
+  color: #0A2240 !important;
+  border: 0.3rem solid #0A2240 !important; }
+
+.button8__navbar-1:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%) !important; }
+
+.button8__1 {
+  border: 0.3rem solid #fff !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .button8__1 {
+      border: none !important;
+      background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%); } }
+  @media only screen and (max-width: 43.7em) {
+    .button8__1 {
+      border: none !important;
+      background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%); } }
+
+.button8__2 {
+  border: 0.3rem solid #00A9E0 !important; }
+
+.button8__3 {
+  border: 0.3rem solid #FFB81D !important; }
+
+.button8__4 {
+  border: 0.3rem solid #4DAA51 !important; }
+
+.button8__5 {
+  border: 0.3rem solid #B5BD00 !important; }
+
+.button8__6 {
+  border: 0.3rem solid #E7B78A !important; }
+
+.button8__7 {
+  border: 0.3rem solid #FF681D !important; }
+
+.button8__1:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #0A2240 0%, #173A66 100%) !important; }
+
+.button8__2:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #0072CE 0%, #00A9E0 100%) !important; }
+
+.button8__3:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #EB9006 0%, #FFB81D 100%) !important; }
+
+.button8__4:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #1C8321 0%, #4DAA51 100%) !important; }
+
+.button8__5:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #959B03 0%, #B5BD00 100%) !important; }
+
+.button8__6:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #C1844C 0%, #E7B78A 100%) !important; }
+
+.button8__7:hover {
+  color: #fff !important;
+  background-image: linear-gradient(90deg, #BB480F 0%, #FF681D 100%) !important; }
+
+.section8-footer {
+  width: 84vw;
+  display: flex;
+  flex-direction: column; }
+
+.section8-logo {
+  height: 14rem; }
+
+.text-white {
+  color: #fff !important; }
+
+.download-icon {
+  width: 2.6rem; }
+
+.margin-footer {
+  margin-top: 3rem; }
+
+.wrapper8 {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 86vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  position: relative; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .wrapper8 {
+      justify-content: flex-start;
+      margin-top: 8rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .wrapper8 {
+      justify-content: flex-start; } }
+
+.margin-bottom2 {
+  margin-bottom: 2rem !important; }
+
+.footer-text {
+  font-family: "bentonsansbook";
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .footer-text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .footer-text {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      margin-bottom: 3rem; } }
+
+.section-badges {
+  display: flex;
+  overflow: hidden;
+  min-height: auto !important;
+  height: auto;
+  width: 100%;
+  background-color: #fff; }
+  .section-badges__content {
+    width: 86%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 8rem; }
+    @media only screen and (max-width: 43.7em) {
+      .section-badges__content {
+        padding-left: 0;
+        padding-right: 0; } }
+
+.badges-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 2rem;
+  margin-bottom: 8rem; }
+
+.badges-container--phone {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  gap: 4rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .badges-container--phone {
+      margin-top: 6rem; } }
+
+.badges_images {
+  width: 20rem; }
+  @media only screen and (max-width: 43.7em) {
+    .badges_images {
+      width: 16rem; } }
+  @media only screen and (max-width: 375px) {
+    .badges_images {
+      width: 12rem; } }
+  @media only screen and (max-width: 320px) {
+    .badges_images {
+      width: 10rem; } }
+
+.badge-line {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem; }
+
+.section-badges-text__number {
+  font-family: "bentonsansbook";
+  color: #0A2240;
+  font-size: 6rem;
+  line-height: 6.6rem;
+  margin-bottom: 5.2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section-badges-text__number {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 43.7em) {
+    .section-badges-text__number {
+      font-size: 3rem;
+      line-height: 3.8rem;
+      margin-bottom: 3rem;
+      margin-top: 7rem; } }
+
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 10rem;
+  margin-right: 10rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .flex-wrapper {
+      margin-top: 0rem;
+      margin-right: 0rem;
+      margin-bottom: 6rem;
+      gap: 6rem; } }
+
+.single-chart {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .single-chart {
+      width: 30%; } }
+  @media only screen and (max-width: 43.7em) {
+    .single-chart {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 2.3rem; } }
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 60%;
+  max-height: 250px; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .circular-chart {
+      max-width: 100%; } }
+  @media only screen and (max-width: 43.7em) {
+    .circular-chart {
+      width: 50%;
+      margin: 0; } }
+
+.circle-bg {
+  fill: none;
+  stroke: #00A9E0;
+  stroke-width: 3.8;
+  opacity: 0.3; }
+
+.circle {
+  fill: none;
+  stroke-width: 3.8; }
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100; } }
+
+.circular-chart.blue .circle {
+  stroke: #4DAA51;
+  animation: progress 2s ease-out forwards; }
+
+.percentage {
+  fill: #fff;
+  font-family: "bentonsansbold";
+  font-size: 0.7em;
+  text-anchor: middle; }
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .percentage {
+      font-size: 1.2em; } }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .percentage {
+      width: 30%;
+      font-size: 0.8em; } }
+
+.percentage-arrow {
+  fill: #c0b800; }
+
+.graph-icon {
+  width: auto;
+  height: 4rem;
+  margin-bottom: 1rem; }
+
+.graph-title {
+  text-align: center;
+  margin-top: 1rem;
+  color: #fff;
+  font-family: "bentonsansbook";
+  font-size: 2.4rem;
+  line-height: 3.2rem; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .graph-title {
+      font-size: 2rem;
+      line-height: 3rem; } }
+
+.graficos-numeros {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  .graficos-numeros__percentagem {
+    color: #fff;
+    font-family: "bentonsansbold";
+    font-size: 3.8rem;
+    line-height: 4rem; }
+  .graficos-numeros__legenda {
+    width: 100%;
+    color: #fff;
+    font-family: "bentonsansbook";
+    font-size: 2.1rem !important;
+    line-height: 2.8rem; }
+
+.top-bar {
+  height: 11.5rem;
+  background-color: #030628;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .top-bar {
+      display: none; } }
+  @media only screen and (max-width: 43.7em) {
+    .top-bar {
+      display: none; } }
+
+.top-bar-wrapper {
+  width: 81.02%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0;
+  margin: 0 auto; }
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  font-style: normal;
+  line-height: 2.8rem; }
+
+.vertical-line {
+  border-left: 1px solid #fff;
+  height: 100%;
+  margin: 0 1.6rem; }
+
+.top-bar-left img {
+  height: 5.6rem;
+  margin-right: 3.6rem; }
+
+.top-bar-right {
+  font-size: 18px; }
+  .top-bar-right a {
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 0.5rem;
+    transition: opacity 0.3s; }
+    .top-bar-right a:hover {
+      opacity: 0.5; }
+  .top-bar-right .link-1 {
+    font-weight: bold;
+    border-bottom: 1px solid #fff;
+    border-radius: 0.1rem;
+    margin-right: 1rem; }
+  .top-bar-right .link-2 {
+    font-weight: normal;
+    margin-right: 3.2rem; }
+  .top-bar-right button {
+    background-color: #D5703B;
+    border-radius: 10rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.3s; }
+    .top-bar-right button:hover {
+      opacity: 0.5; }
