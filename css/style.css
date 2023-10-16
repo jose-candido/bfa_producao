@@ -400,8 +400,8 @@ body {
 .menu-open {
   position: fixed;
   height: 100%;
-  width: 90%;
-  background-color: pink;
+  width: 100%;
+  background-color: #030628;
   bottom: 0;
   right: 0;
   visibility: hidden;
@@ -409,7 +409,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 14rem;
+  padding-top: 12rem;
   z-index: 90000000000000000000000000; }
   .menu-open__container {
     display: flex;
@@ -419,20 +419,66 @@ body {
     @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
       .menu-open__container {
         margin-top: 5rem; } }
+    .menu-open__container button {
+      background-color: #D5703B;
+      border-radius: 10rem;
+      padding: 1.2rem 3rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      font-family: inherit;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.3s; }
+      .menu-open__container button:hover {
+        opacity: 0.5; }
+
+.menu-language {
+  margin-bottom: 4rem;
+  font-size: 1.8rem; }
+  .menu-language a {
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 0.5rem;
+    transition: opacity 0.3s; }
+  .menu-language .link-1 {
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    border-radius: 0.1rem;
+    margin-right: 1rem; }
+
+.menu-lettering {
+  width: 10rem; }
+
+.menu-text {
+  font-size: 1.6rem;
+  font-style: normal;
+  line-height: 2.2rem;
+  font-weight: 400;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: center; }
+
+.menu-graphic-element {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
 
 .menu-in {
   opacity: 1;
   animation-name: appearMenu;
   animation-duration: 1s;
   transition-timing-function: ease-in;
-  animation-fill-mode: forwards; }
+  animation-fill-mode: forwards;
+  text-align: center; }
 
 @keyframes appearMenu {
   from {
-    transform: translateX(100%);
+    transform: translateY(-100%);
     visibility: visible; }
   to {
-    transform: translateX(0%);
+    transform: translateY(0%);
     visibility: visible; } }
 
 .menu-out {
@@ -443,10 +489,10 @@ body {
 
 @keyframes disappearMenu {
   from {
-    transform: translateX(0%);
+    transform: translateY(0%);
     visibility: visible; }
   to {
-    transform: translateX(100%);
+    transform: translateY(-100%);
     visibility: visible; } }
 
 .wrapper {
