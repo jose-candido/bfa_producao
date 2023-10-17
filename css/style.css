@@ -196,7 +196,7 @@ body {
 .hamb-size {
   display: flex; }
 
-.topBar-button:link, .topBar-button:visited {
+.topBar-button:link, .topBar-button:visited, .topBar-button:active {
   background-color: #D5703B;
   border-radius: 10rem;
   padding: 1.2rem 3rem;
@@ -209,15 +209,21 @@ body {
   cursor: pointer;
   transition: opacity 0.3s; }
   @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
-    .topBar-button:link, .topBar-button:visited {
+    .topBar-button:link, .topBar-button:visited, .topBar-button:active {
       font-size: 1.6rem; } }
   @media only screen and (max-width: 43.7em) {
-    .topBar-button:link, .topBar-button:visited {
+    .topBar-button:link, .topBar-button:visited, .topBar-button:active {
       font-size: 1.6rem;
       line-height: 2.5rem; } }
 
 .topBar-button:hover {
   opacity: 0.5; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .topBar-button:hover {
+      opacity: 1; } }
+  @media only screen and (max-width: 43.7em) {
+    .topBar-button:hover {
+      opacity: 1; } }
 
 .topBar-link1 {
   font-weight: bold;
