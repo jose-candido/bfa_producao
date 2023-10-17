@@ -1,0 +1,57 @@
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == min-desktop {
+    @media only screen and (min-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 43.7em) {
+      @content;
+    } //700px
+  }
+}
+
+
+.on-phone {
+  @include respond(phone) {
+    display: block !important;
+  }
+}
+
+.on-tablet {
+  @include respond(tab-port) {
+    display: block !important;
+  }
+}
+
+.on-desktop {
+  @include respond(min-desktop) {
+    display: block !important;
+  }
+}
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+ORDER: Base + typography > general layout + grid > page layout > components
+
+1em = 16px
+*/

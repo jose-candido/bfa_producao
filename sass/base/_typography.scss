@@ -1,0 +1,198 @@
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/BentonSans-Regular.otf");
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/bentonsans-regular-webfont.woff");
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/BentonSansCond-Light.otf");
+//   font-weight: 100;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/bentonsanscond-light-webfont.woff");
+//   font-weight: 100;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/BentonSans-Bold.otf");
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/bentonsans_bold-webfont.woff");
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/BentonSans-Black.otf");
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: "BentonSans";
+//   src: url("../fonts/bentonsans_black-webfont.woff");
+//   font-weight: 900;
+//   font-style: normal;
+// }
+
+// @font-face {
+//   font-family: 'bentonsansblack';
+//   src: url('../fonts/bentonsans-black-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-black-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansbold';
+//   src: url('../fonts/bentonsans-bold-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-bold-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansbook';
+//   src: url('../fonts/bentonsans-book-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-book-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansextra_light';
+//   src: url('../fonts/bentonsans-extralight-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-extralight-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansmedium';
+//   src: url('../fonts/bentonsans-medium-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-medium-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansregular';
+//   src: url('../fonts/bentonsans-regular-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-regular-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+
+
+
+// @font-face {
+//   font-family: 'bentonsansthin';
+//   src: url('../fonts/bentonsans-thin-webfont.woff2') format('woff2'),
+//        url('../fonts/bentonsans-thin-webfont.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+
+// }
+
+body {
+  font-family: 'Verdana', sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 4.0rem;
+  color: $white;
+}
+
+// .section {
+//   &__title {
+//     color: $black;
+//     font-size: 5rem;
+//     line-height: 6rem;
+//     font-weight: 900;
+//     margin-bottom: 3rem;
+//     text-transform: uppercase;
+//     @include respond(phone) {
+//       // width < 1025?
+//       margin-bottom: 1.5rem;
+//       font-size: 4rem;
+//       line-height: 5.5rem;
+//     }
+//   }
+
+//   &__subtitle {
+//     color: $white;
+//     font-weight: 700;
+//     font-size: 2.1rem;
+//     line-height: 3.2rem;
+//     margin-bottom: 3rem;
+//     text-transform: uppercase;
+//     @include respond(phone) {
+//       line-height: 3.5rem;
+//       margin-bottom: 1.5rem;
+//     }
+//     &--5 {
+//       display: none;
+//     }
+//   }
+
+//   &__text {
+//     color: $white;
+//     font-weight: 400;
+//     font-size: 2.1rem;
+//     line-height: 3.2rem;
+//     margin-bottom: 3rem;
+
+//     &--without-margin {
+//       margin-bottom: 0;
+//     }
+//   }
+
+//   .pie-graph {
+//     height: 21.6rem;
+//     align-self: flex-start;
+//     @include respond(tab-port) {
+//       height: 31.6rem;
+//     }
+//   }
+// }
+

@@ -1,0 +1,130 @@
+.menu-open {
+    position: fixed;
+    // height: calc(100% - 10rem);
+    height: 100%;
+    width: 87%;
+    background-color: $dark-blue;
+    bottom: 0;
+    right: 0;
+    visibility: hidden;
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    // padding-top: 2rem;
+    z-index: 1000;
+  
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    //   padding: 0 5rem;
+      height: calc(100% - 10rem);
+      padding: 0 7vw;
+    }
+  }
+  
+// BottomGraphic Element
+.menu-graphicElement-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5.4rem;
+    overflow: hidden;
+}
+  
+  .menu-graphicElement {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.menu-open-top {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.menu-links-mobile {
+    display: flex;
+    font-size: 18px;
+    a {
+        text-decoration: none;
+        color: $white;
+        transition: opacity 0.3s;
+        &:hover {
+          opacity: 0.5;
+        }
+    }
+}
+
+.menu-lettering {
+ height: 25rem;
+ @media (max-height: 720px) {
+    height: 20rem;
+  }
+//  @media (max-height: 700px) {
+//     display: none;
+//   }
+//   @media (max-width: 400px) {
+//     display: none;
+//   }
+}
+
+.menu-text {
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    @media (max-height: 720px) {
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+}
+
+  .menu-in {
+    opacity: 1;
+    animation-name: appearMenu;
+    animation-duration: 1s;
+    transition-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    text-align: center;
+  
+  }
+  
+  @keyframes appearMenu {
+    from {
+      transform: translateX(105%);
+      visibility: visible;
+    }
+    to {
+      transform: translateX(0%);
+      visibility: visible;
+    }
+  }
+  
+  .menu-out {
+    animation-name: disappearMenu;
+    animation-duration: 1s;
+    transition-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  
+  }
+  
+  @keyframes disappearMenu {
+    from {
+      transform: translateX(0%);
+      visibility: visible;
+    }
+    to {
+      transform: translateX(105%);
+      visibility: visible;
+    }
+  }
+  
+  
+  
