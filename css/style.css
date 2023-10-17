@@ -58,7 +58,7 @@ body {
   overflow-x: hidden; }
 
 ::selection {
-  background-color: pink;
+  background-color: #D5703B;
   color: #fff; }
 
 a {
@@ -84,6 +84,9 @@ body {
   align-items: center;
   padding: 0 0;
   margin: 0 auto; }
+  @media only screen and (max-width: 43.7em) {
+    .wrapper {
+      width: 87.18%; } }
 
 .section_1 {
   width: 100%;
@@ -105,6 +108,9 @@ body {
 .section1-graphicElement-box {
   width: 100%;
   height: 22.7rem; }
+  @media only screen and (max-width: 43.7em) {
+    .section1-graphicElement-box {
+      height: 5.4rem; } }
 
 .section1-graphicElement {
   width: 100%;
@@ -148,6 +154,9 @@ body {
   bottom: 14.0rem;
   height: 6.4rem;
   animation: bounce 3s infinite; }
+  @media only screen and (max-width: 43.7em) {
+    .section_1-arrow {
+      bottom: 6rem; } }
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
@@ -156,6 +165,39 @@ body {
     transform: translateY(30px); }
   60% {
     transform: translateY(15px); } }
+
+.section_1-mobile {
+  width: 100%;
+  height: calc(100vh - 10rem);
+  background-image: url(../img/background-section1-mobile.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.section1-graphicElement-box-mobile {
+  width: 100%;
+  height: 5.4rem;
+  margin-top: 10rem; }
+
+.section_1-content-mobile {
+  display: flex;
+  height: calc(100vh - 10rem - 5.4rem);
+  justify-content: flex-end;
+  align-items: center; }
+
+.section_1-lettering-box-mobile {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -15rem;
+  width: 50%;
+  height: 60%; }
+
+.section_1-lettering-mobile {
+  height: 100%;
+  width: 100%; }
 
 .top-bar-desktop {
   position: absolute;
@@ -215,7 +257,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 86vw;
+    width: 87.18%;
     height: 100%;
     margin: 0 auto; }
 
