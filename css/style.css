@@ -122,9 +122,20 @@ body {
   font-weight: 700;
   margin-bottom: 4rem; }
 
+.title-mobile {
+  font-size: 2.4rem;
+  line-height: 3.4rem;
+  font-weight: 700;
+  margin-bottom: 1.6rem; }
+
 .text-regular {
   font-size: 2.8rem;
   line-height: 3.2rem;
+  font-weight: 400; }
+
+.text-regular-mobile {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
   font-weight: 400; }
 
 .text-orange {
@@ -477,6 +488,13 @@ body {
   height: 100%;
   width: 100%; }
 
+.section_1-1-mobile {
+  background-color: #030628;
+  text-align: center; }
+
+.section_1-1-text {
+  margin: 4rem 0rem; }
+
 .section_2 {
   display: none;
   width: 100%;
@@ -532,3 +550,56 @@ body {
   font-weight: 700;
   color: #fff;
   text-align: center; }
+
+.section_2-mobile {
+  display: none;
+  width: 100%;
+  background-color: #002D25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+  text-align: center; }
+
+.section_2-content-mobile {
+  display: flex;
+  flex-direction: column; }
+
+.section_2-subtext-mobile {
+  width: 90%;
+  text-align: center; }
+
+.section_2-areas-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 3rem; }
+
+.section_2-areas-element-mobile {
+  width: 100%;
+  background-color: #D5703B;
+  border-radius: 12px;
+  padding: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; }
+
+.element-icon-box-mobile {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center; }
+
+.element-icon-mobile {
+  height: 100%; }
+
+.element-text-mobile {
+  width: 100%;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  font-weight: 400;
+  color: #fff;
+  text-align: left;
+  margin-left: 1.6rem; }
