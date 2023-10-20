@@ -156,6 +156,11 @@ body {
   line-height: 2.2rem;
   font-weight: 400; }
 
+.text-regular--bold-mobile {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  font-weight: 700; }
+
 .subtitle {
   font-size: 2.8rem;
   line-height: 3.2rem;
@@ -935,7 +940,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding-bottom: 3rem; }
 
 .section4-picture-box-mobile {
   width: 100%;
@@ -943,7 +949,8 @@ body {
   overflow: hidden; }
 
 .section4-picture-mobile {
-  height: 100%; }
+  height: 100%;
+  width: 100%; }
 
 .section_4-content-mobile {
   padding: 4rem 0;
@@ -971,12 +978,10 @@ body {
   text-align: center; }
   @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
     .section5-graphicElement-box {
-      height: 5.4rem;
-      margin-top: -2.7rem; } }
+      display: none; } }
   @media only screen and (max-width: 43.7em) {
     .section5-graphicElement-box {
-      height: 5.4rem;
-      margin-top: -2.7rem; } }
+      display: none; } }
 
 .section5-graphicElement {
   height: 100%; }
@@ -1057,91 +1062,19 @@ body {
   width: 1rem;
   height: 22rem; }
 
-.section_1-mobile {
+.section_5-mobile {
   display: none;
   width: 100%;
-  height: calc(100vh - 10rem);
-  background-image: url(../img/background-section1-mobile.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.section1-graphicElement-box-mobile {
-  width: 100%;
-  height: 5.4rem;
-  margin-top: 10rem; }
-
-.section_1-content-mobile {
-  display: flex;
-  height: calc(100vh - 10rem - 5.4rem);
-  justify-content: flex-end;
-  align-items: center; }
-
-.section_1-lettering-box-mobile {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -15rem;
-  width: 50%;
-  height: 60%; }
-
-.section_1-lettering-mobile {
-  height: 100%;
-  width: 100%; }
-
-.section_1-1-mobile {
   background-color: #030628;
-  text-align: center; }
-
-.section_1-1-text {
-  margin: 4rem 0rem; }
-
-.section_3-mobile {
-  width: 100%;
-  background-color: #030628;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0; }
-
-.section_3-content-mobile {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 4rem; }
-
-.section_3-left-mobile {
-  display: flex;
-  justify-content: center;
-  width: 50%; }
-
-.section_3-right-mobile {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 50%; }
+  align-items: center; }
 
-.section_3-ball-mobile {
-  position: relative;
-  width: 100%; }
-
-.section_3-ball-picture-mobile {
-  position: relative;
+.section5-picture-box-mobile {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  /* Isso cria a forma circular */ }
+  height: 26rem;
+  overflow: hidden; }
 
-.section_3-content2-mobile {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 2.2rem;
-  padding: 4rem 0; }
-
-.section_3-name {
-  font-size: 1.2rem !important;
-  line-height: 1.8rem !important; }
+.section5-picture-mobile {
+  width: 100%; }
