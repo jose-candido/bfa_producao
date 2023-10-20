@@ -654,6 +654,12 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.3s; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-link:link, .element-link:visited, .element-link:active {
+      text-decoration: none !important; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-link:link, .element-link:visited, .element-link:active {
+      text-decoration: none !important; } }
 
 .element-link:hover {
   opacity: 0.5; }
