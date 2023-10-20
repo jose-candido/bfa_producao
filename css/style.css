@@ -240,6 +240,9 @@ body {
   padding-left: 1.6rem;
   margin-left: 1.6rem; }
 
+.text-align-center {
+  text-align: center !important; }
+
 .top-bar-desktop {
   position: absolute;
   top: 0;
