@@ -650,6 +650,20 @@ body {
   color: #fff;
   text-align: center; }
 
+.element-link:link, .element-link:visited, .element-link:active {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s; }
+
+.element-link:hover {
+  opacity: 0.5; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .element-link:hover {
+      opacity: 1; } }
+  @media only screen and (max-width: 43.7em) {
+    .element-link:hover {
+      opacity: 1; } }
+
 .section_2-mobile {
   display: none;
   width: 100%;
