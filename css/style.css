@@ -1114,6 +1114,28 @@ body {
 .section5-picture-mobile {
   width: 100%; }
 
+.section_5-mobile-last-box {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-start; }
+
+.section_5-mobile-last-box-picture {
+  width: 100%;
+  display: flex; }
+
+.section_5-mobile-last-box-lettering {
+  width: 100%;
+  display: flex; }
+
+.section_5-mobile-last-picture {
+  width: 100%; }
+
+.section_5-mobile-last-lettering {
+  width: 100%;
+  padding-right: 3rem; }
+
 .section_6_percentages {
   display: flex;
   flex-direction: column;
@@ -1145,3 +1167,13 @@ body {
   @media only screen and (max-width: 43.7em) {
     .section6-graphicElement-box {
       display: none; } }
+
+.section_6-mobile {
+  display: none;
+  width: 100%;
+  background-color: #002D25;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem; }
