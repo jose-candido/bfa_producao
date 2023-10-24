@@ -289,6 +289,11 @@ body {
 .legend-light-green {
   background-color: #57B463; }
 
+.white-link {
+  text-decoration: underline;
+  text-decoration-color: #fff;
+  color: #fff; }
+
 .top-bar-desktop {
   position: absolute;
   top: 0;
@@ -1280,6 +1285,12 @@ body {
 
 .section_8-matrix-graphicElement-matrix {
   width: 80%; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section_8-matrix-graphicElement-matrix {
+      width: 100%; } }
+  @media only screen and (max-width: 43.7em) {
+    .section_8-matrix-graphicElement-matrix {
+      width: 100%; } }
 
 .section_8-matrix-text-box {
   display: flex;
@@ -1309,3 +1320,23 @@ body {
   margin-top: 4rem;
   width: 65.7%;
   margin-bottom: 14rem; }
+
+.section_8-mobile-points {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.8rem; }
+
+.section_8-mobile-points-element {
+  display: flex;
+  align-items: center;
+  gap: 1rem; }
+
+.section_8-mobile-matrix-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.2rem;
+  gap: 4rem; }
