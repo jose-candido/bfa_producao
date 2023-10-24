@@ -428,6 +428,11 @@ body {
     .topBar-link2 {
       margin-right: 0rem; } }
 
+.topBar-button-blue:link, .topBar-button-blue:visited, .topBar-button-blue:active {
+  background-color: #030628 !important;
+  min-width: 44rem !important;
+  text-align: center !important; }
+
 .menu-open {
   position: fixed;
   height: 100%;
@@ -1340,3 +1345,21 @@ body {
   align-items: center;
   margin-top: 3.2rem;
   gap: 4rem; }
+
+.section_9 {
+  display: none;
+  width: 100%;
+  background-color: #D5703B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 0; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .section_9 {
+      display: none; } }
+  @media only screen and (max-width: 43.7em) {
+    .section_9 {
+      display: none; } }
+
+.section_9-text-box {
+  width: 57.1%; }
