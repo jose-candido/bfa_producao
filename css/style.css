@@ -1177,3 +1177,18 @@ body {
   justify-content: center;
   align-items: center;
   padding-top: 2rem; }
+
+.section_7-themes {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8rem; }
+
+.section_7-data-element-bigNumber {
+  display: flex;
+  align-items: self-end;
+  margin-top: 2.4rem;
+  margin-bottom: 0.4rem; }
+
+.section_7-mobile-last-box-lettering {
+  width: 100%;
+  padding-left: 6.45%; }
