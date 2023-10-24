@@ -1414,3 +1414,23 @@ body {
   right: 5.78%;
   bottom: 14rem;
   transform: rotate(180deg); }
+
+.footer {
+  display: none;
+  width: 100%;
+  background-color: #002D25;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.2rem 0;
+  position: relative; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .footer {
+      display: none; } }
+  @media only screen and (max-width: 43.7em) {
+    .footer {
+      display: none; } }
+
+.footer-logo {
+  height: 4.8rem;
+  width: auto; }
