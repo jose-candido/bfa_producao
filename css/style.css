@@ -440,6 +440,9 @@ body {
   background-color: #030628 !important;
   width: 100%;
   text-align: center !important; }
+  @media only screen and (min-width: 43.7em) and (max-width: 56.25em) {
+    .topBar-button-mobile-blue:link, .topBar-button-mobile-blue:visited, .topBar-button-mobile-blue:active {
+      width: 50%; } }
 
 .menu-open {
   position: fixed;
