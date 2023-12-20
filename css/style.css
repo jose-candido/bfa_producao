@@ -305,7 +305,7 @@ body {
   display: block !important; }
 
 .hidden-u {
-  display: none; }
+  display: none !important; }
 
 .section_10-arrow_phone {
   opacity: 0; }
@@ -1497,3 +1497,9 @@ body {
 .section_10-arrow-mobile-element {
   height: 6.4rem;
   transform: rotate(180deg); }
+
+.class-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
