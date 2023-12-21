@@ -1056,7 +1056,6 @@ body {
   overflow: hidden; }
 
 .section4-picture-mobile {
-  height: 100%;
   width: 100%; }
 
 .section_4-content-mobile {
@@ -1502,4 +1501,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-width {
+  padding: 1.2rem 5rem !important;
 }
